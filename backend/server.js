@@ -46,15 +46,14 @@ app.get("/get/items", getItems)
     //begin here
     var data = fs.readFileSync('database.json');
     response.json(JSON.parse(data));
-    var searchField = request.query.taskname;
-    var json = JSON.parse (fs.readFileSync('database.json'));
-    var returnData = json.filter(jsondata => jsondata.Task === searchField);
-    response.json(returnData);
   } 
 
 app.get("/get/searchitem",searchItems)
 //**week 5, search items service */
   function searchItems (request, response) {
     //begin here
-    
+    var searchField = request.query.taskname;
+    var json = JSON.parse (fs.readFileSync('database.json'));
+    var returnData = json.filter(jsondata => jsondata.Task === searchField);
+    response.json(returnData);
   }
