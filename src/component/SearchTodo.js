@@ -34,7 +34,6 @@ class SearchTodo extends Component {
         tmpdata: JSON.stringify(res.data),
         });
     });
-    
   };
   
   render() {
