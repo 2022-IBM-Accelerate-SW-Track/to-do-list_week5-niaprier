@@ -44,7 +44,12 @@ app.get("/get/items", getItems)
 //** week5, get all items from the json database*/
   function getItems (request, response) {
     //begin here
-    
+    var data = fs.readFileSync('database.json');
+    response.json(JSON.parse(data));
+    var searchField = request.query.taskname;
+    var json = JSON.parse (fs.readFileSync('database.json'));
+    var returnData = json.filter(jsondata => jsondata.Task === searchField);
+    response.json(returnData);
   } 
 
 app.get("/get/searchitem",searchItems)
